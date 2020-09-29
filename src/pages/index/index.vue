@@ -56,12 +56,16 @@
 			    uni.removeStorageSync('isLogin')
 			},
             destroyInterceptLogin () {
-                destroyInterceptLogin() // 销毁登录拦截
-                bindInterceptEveryone() // 注册任何人可进入的拦截
+                // 销毁登录拦截
+                destroyInterceptLogin()
+                // 注册任何人可进入的拦截
+                bindInterceptEveryone()
 			},
             bindInterceptLogin () {
-			    destroyInterceptEveryone() // 销毁任何人可进入的拦截
-                bindInterceptLogin() // 注册登录拦截
+                // 销毁任何人可进入的拦截
+			    destroyInterceptEveryone()
+                // 注册登录拦截
+                bindInterceptLogin()
 			}
 		}
 	}
