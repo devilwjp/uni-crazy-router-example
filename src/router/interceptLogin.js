@@ -3,7 +3,6 @@ let intercept
 export function bindInterceptLogin () {
     destroyInterceptLogin()
     intercept = uniCrazyRouter.beforeEach(async (to, from ,next) => {
-        // 判断是否登录，没有登陆就跳转到登录页，并且要去除对登录页的拦截，否则会死循环
         if (to.url === 'pages/login') {
             if (uni.getStorageSync('isLogin')) {
                 uniCrazyRouter.afterNotNext(() => {
