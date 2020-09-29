@@ -34,7 +34,3 @@ uniCrazyRouter.onError((to, from)=>{
         icon: 'none'
     })
 })
-
-export function destoryInterceptLogin () {
-    interceptLogin()
-}
