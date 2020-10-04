@@ -1,16 +1,16 @@
 import Vue from 'vue'
-import uniCrazyRouter from "uni-crazy-router";
+import uniCrazyRouter, {beforeEach, afterEach, onError, afterNotNext} from "uni-crazy-router";
 Vue.use(uniCrazyRouter)
 import {bindInterceptLogin, destroyInterceptLogin} from './interceptLogin'
 
 // 启用登录页的拦截
 bindInterceptLogin()
 
-uniCrazyRouter.beforeEach(async (to, from ,next)=>{
+beforeEach(async (to, from ,next)=>{
     // 逻辑代码
 
     if (to.url === 'pages/index/page2') {
-        uniCrazyRouter.afterNotNext(() => {
+        afterNotNext(() => {
             uni.navigateTo({
                 url: '/pages/index/page1',
                 passedParams: {
@@ -24,11 +24,11 @@ uniCrazyRouter.beforeEach(async (to, from ,next)=>{
     next()
 })
 
-uniCrazyRouter.afterEach((to, from)=>{
+afterEach((to, from)=>{
     // 逻辑代码
 })
 
-uniCrazyRouter.onError((to, from)=>{
+onError((to, from)=>{
     uni.showToast({
         title: `${to.url} 不存在`,
         icon: 'none'

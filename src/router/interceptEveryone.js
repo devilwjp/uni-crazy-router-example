@@ -1,10 +1,10 @@
-import uniCrazyRouter from "uni-crazy-router"
+import {beforeEach, afterNotNext} from "uni-crazy-router"
 let intercept
 export function bindInterceptEveryone () {
     destroyInterceptEveryone()
-    intercept = uniCrazyRouter.beforeEach(async (to, from ,next) => {
+    intercept = beforeEach(async (to, from ,next) => {
         if (to.url === 'pages/login') {
-            uniCrazyRouter.afterNotNext(() => {
+            afterNotNext(() => {
                 // 拦截路由，并且跳转去登录页
                 uni.navigateTo({
                     url: '/pages/index/page1',
